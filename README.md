@@ -1,11 +1,46 @@
-<div align="center">
+# AI Observer Test Platform
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+A full-stack React + TypeScript + PHP testing platform.
 
-  <h1>Built with AI Studio</h2>
+## Prerequisites
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+- Node.js & npm
+- PHP (CLI or via XAMPP/MAMP)
+- MySQL
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## Setup Instructions (Windows PowerShell)
 
-</div>
+### 1. Database Setup
+Ensure MySQL is running. Open PowerShell and run:
+```powershell
+# Adjust user/pass if not root/empty
+Get-Content backend/database.sql | mysql -u root ai_observer
+```
+*Alternatively, create a DB named `ai_observer` and import `backend/database.sql` via PHPMyAdmin.*
+
+### 2. Frontend Setup
+```powershell
+npm install
+# Create .env from example (optional if defaults work)
+Copy-Item .env.example .env
+```
+
+### 3. Running the App
+
+**Terminal 1: Backend**
+Run the built-in PHP server from the project root:
+```powershell
+php -S 127.0.0.1:8000
+```
+*Note: We run from root so `backend/api.php` is accessible at `http://localhost:8000/backend/api.php`.*
+*If you change this, update `VITE_API_URL` in `.env`.*
+
+**Terminal 2: Frontend**
+```powershell
+npm run dev
+```
+Open the URL shown (usually http://localhost:5173).
+
+## Default Logins
+- **Teacher**: teacher@test.com / password
+- **Student**: student@test.com / password
